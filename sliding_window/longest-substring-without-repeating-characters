@@ -1,0 +1,18 @@
+ int lengthOfLongestSubstring(string s) {
+        int left=0,right=0;
+        int res=0;
+        unordered_map<char,int>window;
+        while(right<s.size()){
+            window[s[right]]++;
+            right++;
+            while( window[s[right-1]]>1){
+                 window[s[left]]--;
+                 left++;
+            }
+            if(res<right-left){
+                res=right-left;
+            }
+           
+        }
+        return res;
+    }
